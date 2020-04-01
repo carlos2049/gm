@@ -1,7 +1,7 @@
 <template>
 <div class="prueba">
    
-    <SideBar></SideBar>
+    
 
 </div>
   
