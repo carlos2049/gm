@@ -13,7 +13,11 @@
         
     </nav>  
     <!-- color="blue-grey darken-4" -->
-     <v-navigation-drawer app  color="blue-grey darken-4" v-model="drawer" :mini-variant="miniVariant">
+     <v-navigation-drawer app  class="blue-grey darken-4"
+            dark
+            permanent 
+            v-model="drawer" :mini-variant="miniVariant">
+            
             <div class="d-flex "  height="0">
                 <div  class="my-4 mx-3 align-center">
                     <v-img
@@ -35,49 +39,93 @@
             <hr   size="1">
             <div>
                 <v-list>
-                    <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+                    <!-- <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                         <v-list-item-action>
                             <v-icon :color="colorIcon"> {{ link.icon }} </v-icon>
                         </v-list-item-action>
 
                         <v-list-item-content>
                             <v-list-item-title>
-                                <v-list-item-title class="white--text"> {{ link.text }}</v-list-item-title>
+                                <v-list-item-title class="white--text "> {{ link.text }}</v-list-item-title>
                                
                             </v-list-item-title>
                             
                         </v-list-item-content>
                         
-                    </v-list-item>
+                    </v-list-item> -->
 
+
+                 <v-list-group
+                    v-for="titulo in titulos2"
+                    :key="titulo.nombre"
+                     
+                   
+                
+                    no-action
+                    class=""
+                >
+                        <template v-slot:activator  >
+                            <v-list-item-action>
+                                <v-icon :color="colorIcon"> {{ titulo.icon }} </v-icon>
+                            </v-list-item-action>
+                        <v-list-item-content   >
+                            
+                            
+                            <v-list-item-title class="subtitle-2 font-weight-regular" v-text="titulo.nombre"></v-list-item-title>
+                        </v-list-item-content>
+                        </template>
+
+                        <v-list-item
+                        v-for="subtitulo in titulo.subTitulo"
+                        :key="subtitulo.name"
+                        router :to="subtitulo.route"
+                         class="pl-4"
+                        >
+                            <v-list-item-action>
+                                <v-icon :color="colorIcon"> {{ subtitulo.icon }} </v-icon>
+                            </v-list-item-action>
+                            <v-list-item-content >
+                            
+                                <v-list-item-title class="subtitle-2 font-weight-regular" v-text="subtitulo.name"></v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+
+                      
+                </v-list-group>
                      
                     
                 </v-list>
 
             </div>
-            <div>
+            
+            <!-- <div >
                 <v-row >
                     <v-row justify="space-around">    
                     </v-row >
 
-                        <v-expansion-panels :multiple="multiple" >
-                            <v-expansion-panel class="mr-10" v-for="titulo   in titulos2" :key="titulo.nombre" >
+                        <v-expansion-panels  focusable>
+                            <v-expansion-panel class="mr-10" v-for="titulo   in titulos3" :key="titulo.nombre" router >
                                 
 
-                                <v-expansion-panel-header :hide-actions="condition" class="d-flex px-7   " color="blue-grey darken-4"  >
-                                     <v-icon class="white--text" :class="margin2">mdi-home</v-icon>
+                                <v-expansion-panel-header  :hide-actions="condition" class="d-flex px-7   " color="blue-grey darken-4"  >
+                                     <v-icon class="white--text" :class="margin2"> {{ titulo.icon }} </v-icon>
                                         <div v-show="condTitulo2" class="white--text text-no-wrap subtitle-1">{{ titulo.nombre}}
                                          </div> 
                                 </v-expansion-panel-header>
-                                <v-expansion-panel-content color="blue-grey darken-4" class="pa-0 text-center white--text font-weight-regular"
+                                <v-expansion-panel-content  color="blue-grey darken-4" inherit  class="  pa-0 text-center white--text font-weight-regular "
                                     v-for="sub in titulo.subTitulo" :key="sub.name" >
-                                {{sub.name}}
-                                
+                                        
+                                        <router-link :to="sub.route" class="d-flex align-center cunitario pa-0">
+                                                                                         
+                                                <v-icon class="white--text mx-6">{{sub.icon}}</v-icon> 
+                                                <div class="ml-3 subtitle-1" link>{{sub.name}}</div>  
+                                            
+                                        </router-link>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
                         </v-expansion-panels>
                 </v-row>
-            </div>
+            </div> -->
             <!-- <v-divider color="white" class="mx-2 "></v-divider> -->
            
         </v-navigation-drawer>
@@ -95,34 +143,49 @@ export default {
 
              nombre: 'ALTUS COACH',
              colorIcon: 'white',
-             links: [
-                 {icon: 'mdi-home', text:'PAGINA 1', route: '/home'},
-                 {icon: 'mdi-gavel', text:'PAGINA 2', route: '/hola1'},
-                 {icon: 'mdi-folder', text:'PAGINA 3', route: '/hola2'},
-                 {icon: 'mdi-widgets', text:'PAGINA 4', route: '/hola3'},
-             ],
-             multiple: true,
-             paneles:[
-                 {icon: 'mdi-home', text:'PAGINA 1', route: '/home'},
-                 {icon: 'mdi-gavel', text:'PAGINA 2', route: '/hola1'},
-             ],
+            
+             
+          
+               
            
              condition2: false,
              margin : '',
              titulos2:[
-                 {nombre:'TITULO 1 ',subTitulo :[
-                     {name: ' holaa 1'},
-                     {name: ' holaa 2'},
+                 {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
+                     {icon: 'mdi-gavel',name: ' Planes', route:'/home'},
+                     {icon: 'mdi-gavel',name: ' Sub Planes', route:'/hola2'},
                  ]},
-                 {nombre:'TITULO 2 ',subTitulo :[
-                     {name: ' holaa 3'},
-                     {name: ' holaa 4'}
+                 {icon: 'mdi-widgets', nombre:'Ejercicios',subTitulo :[
+                     {icon: 'mdi-gavel',name: 'Ejercicios', route:'/hola3'},
+                     {icon: 'mdi-gavel',name: 'Biblioteca de Ejercicios', route:'/hola4'}
+                
                  ]},
-                 {nombre:'TITULO 3 ',subTitulo :[
-                     {name: ' holaa '}
+                 {icon: 'mdi-folder', nombre:'Maestro de Clases',subTitulo :[
+                     {icon: 'mdi-home',name: 'Creacion de clases', route:'/hola5'},
+                     {icon: 'mdi-home',name: 'Crear Rutinas Clientes', route:'/hola6'}
+                 ]},
+                 {icon: 'mdi-folder', nombre:'Maestro de Gastos',subTitulo :[
+                     {icon: 'mdi-home',name: 'Periodos', route:'/hola5'},
+                     {icon: 'mdi-home',name: 'Tipos de Gastos', route:'/hola7'},
+                     {icon: 'mdi-home',name: 'Maestro de gastos', route:'/hola8'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Almacen',subTitulo :[
+                     {icon: 'mdi-home',name: 'Articulos', route:'/hola9'},
+                     {icon: 'mdi-home',name: 'Categorias', route:'/hola10'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Compras',subTitulo :[
+                     {icon: 'mdi-home',name: 'Ingresos', route:'/hola11'},
+                     {icon: 'mdi-home',name: 'Proveedores', route:'/hola12'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'s',subTitulo :[
+                     {icon: 'mdi-home',name: '', route:'/hola13'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'T',subTitulo :[
+                     {icon: 'mdi-home',name: '', route:'/hola14'},
                  ]},
                  
              ],
+        
              condTitulo : true,
              
              
@@ -148,21 +211,7 @@ export default {
                return this.nombre = 'ALTUS COACH'
             }
         },
-        // titulos(){
-        //     if(this.miniVariant){
-        //      for (let index = 0; index < this.titulos2.length; index++) {
-        //          return this.titulos2[index].nombre = "" ;
-                 
-        //      }
-        //     }else{
-        //        for (let index = 0; index < 3; index++) {
-        //         var arr = []
-        //         var arr = this.titulos2[index].nombre
-        //          return arr
-                 
-        //      }
-        //     }
-        // },
+    
         condition(){
             if(this.miniVariant){
                return this.condition2 = true
@@ -191,5 +240,9 @@ export default {
 </script>
 <style lang="css" scoped>
 
+
+.v-application--is-ltr .v-list-item__action:first-child, .v-application--is-ltr .v-list-item__icon:first-child {
+    margin-right: 15px;
+}
 
 </style>
