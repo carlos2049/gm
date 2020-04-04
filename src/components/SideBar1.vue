@@ -4,34 +4,27 @@
         <v-app-bar app   color="grey lighten-5">
      
             <v-app-bar-nav-icon  @click="minivarianCambio"></v-app-bar-nav-icon>
-            
-
-        </v-app-bar>
-
-
-       
-        
+        </v-app-bar>       
     </nav>  
     <!-- color="blue-grey darken-4" -->
-     <v-navigation-drawer app  class="blue-grey darken-4"
+     <v-navigation-drawer app  class="blue-grey darken-3"
             dark
             permanent 
-            v-model="drawer" :mini-variant="miniVariant">
+            v-model="drawer" :mini-variant="miniVariant"
+            :expand-on-hover="expandir">
             
             <div class="d-flex "  height="0">
                 <div  class="my-4 mx-3 align-center">
                     <v-img
                         :src="require('@/assets/logoAdm.png')"
-                       
                         contain
-                        
                         height="30"
                         width="30"
                     />
                 </div>
                 <div >
-                <h2 class="pa-4 white--text font-weight-regular text-center text-no-wrap" > {{ nombreCambio }} </h2>
-                <!-- <h2 class="pa-4 white--text text-no-wrap" > {{ miniVariant ? nombre : nombre2 }} </h2> -->
+                    <h2 class="pa-4 white--text font-weight-regular text-center text-no-wrap" > {{ nombreCambio }} </h2>
+                    <!-- <h2 class="pa-4 white--text text-no-wrap" > {{ miniVariant ? nombre : nombre2 }} </h2> -->
 
                 </div>
                
@@ -39,22 +32,6 @@
             <hr   size="1">
             <div>
                 <v-list>
-                    <!-- <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
-                        <v-list-item-action>
-                            <v-icon :color="colorIcon"> {{ link.icon }} </v-icon>
-                        </v-list-item-action>
-
-                        <v-list-item-content>
-                            <v-list-item-title>
-                                <v-list-item-title class="white--text "> {{ link.text }}</v-list-item-title>
-                               
-                            </v-list-item-title>
-                            
-                        </v-list-item-content>
-                        
-                    </v-list-item> -->
-
-
                  <v-list-group
                     v-for="titulo in titulos2"
                     :key="titulo.nombre"
@@ -82,16 +59,30 @@
                          class="pl-4"
                         >
                             <v-list-item-action>
-                                <v-icon :color="colorIcon"> {{ subtitulo.icon }} </v-icon>
+                                <v-icon :color="colorIcon"> radio_button_unchecked </v-icon>
                             </v-list-item-action>
                             <v-list-item-content >
                             
-                                <v-list-item-title class="subtitle-2 font-weight-regular" v-text="subtitulo.name"></v-list-item-title>
+                                <v-list-item-title class="ml-2 subtitle-2 font-weight-regular" v-text="subtitulo.name"></v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
 
                       
                 </v-list-group>
+                <v-list-item v-for="secundario in tituloSecun" :key="secundario.nombre" router :to="secundario.route">
+                        <v-list-item-action>
+                            <v-icon :color="colorIcon"> {{ secundario.icon }} </v-icon>
+                        </v-list-item-action>
+
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <v-list-item-title class="white--text subtitle-2 font-weight-regular"> {{ secundario.nombre }}</v-list-item-title>
+                               
+                            </v-list-item-title>
+                            
+                        </v-list-item-content>
+                        
+                    </v-list-item>
                      
                     
                 </v-list>
@@ -144,20 +135,16 @@ export default {
              nombre: 'ALTUS COACH',
              colorIcon: 'white',
             
-             
-          
-               
-           
-             condition2: false,
+             expandOnHover: false,   
              margin : '',
              titulos2:[
                  {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
-                     {icon: 'mdi-gavel',name: ' Planes', route:'/home'},
-                     {icon: 'mdi-gavel',name: ' Sub Planes', route:'/hola2'},
+                     {icon: 'radio_button_unchecked',name: ' Planes', route:'/home'},
+                     {icon: 'radio_button_unchecked',name: ' Sub Planes', route:'/hola2'},
                  ]},
                  {icon: 'mdi-widgets', nombre:'Ejercicios',subTitulo :[
-                     {icon: 'mdi-gavel',name: 'Ejercicios', route:'/hola3'},
-                     {icon: 'mdi-gavel',name: 'Biblioteca de Ejercicios', route:'/hola4'}
+                     {icon: 'radio_button_unchecked',name: 'Ejercicios', route:'/hola3'},
+                     {icon: 'radio_button_unchecked',name: 'Biblioteca de Ejercicios', route:'/hola4'}
                 
                  ]},
                  {icon: 'mdi-folder', nombre:'Maestro de Clases',subTitulo :[
@@ -165,7 +152,7 @@ export default {
                      {icon: 'mdi-home',name: 'Crear Rutinas Clientes', route:'/hola6'}
                  ]},
                  {icon: 'mdi-folder', nombre:'Maestro de Gastos',subTitulo :[
-                     {icon: 'mdi-home',name: 'Periodos', route:'/hola5'},
+                     {icon: 'mdi-home',name: 'Periodos', route:'/hola56'},
                      {icon: 'mdi-home',name: 'Tipos de Gastos', route:'/hola7'},
                      {icon: 'mdi-home',name: 'Maestro de gastos', route:'/hola8'},
                  ]},
@@ -177,19 +164,48 @@ export default {
                      {icon: 'mdi-home',name: 'Ingresos', route:'/hola11'},
                      {icon: 'mdi-home',name: 'Proveedores', route:'/hola12'},
                  ]},
-                     {icon: 'mdi-folder', nombre:'s',subTitulo :[
-                     {icon: 'mdi-home',name: '', route:'/hola13'},
+                     {icon: 'mdi-folder', nombre:'Ventas',subTitulo :[
+                     {icon: 'mdi-home',name: 'Ventas', route:'/hola13'},
+                     {icon: 'mdi-home',name: 'Clientes', route:'/hola13'},
                  ]},
-                     {icon: 'mdi-folder', nombre:'T',subTitulo :[
-                     {icon: 'mdi-home',name: '', route:'/hola14'},
+                     {icon: 'mdi-folder', nombre:'Acesso',subTitulo :[
+                     {icon: 'mdi-home',name: 'Usuarios', route:'/hola15'},
+                     {icon: 'mdi-home',name: 'Permisos', route:'/hola16'},
+                     {icon: 'mdi-home',name: 'Perfiles', route:'/hola17'},
                  ]},
+                     {icon: 'mdi-folder', nombre:'Crear Test',subTitulo :[
+                     {icon: 'mdi-home',name: 'Ruffier', route:'/hola18'},
+                     {icon: 'mdi-home',name: 'Ananmesis', route:'/hola19'},
+                     {icon: 'mdi-home',name: 'Antropometria', route:'/hola20'},
+                     {icon: 'mdi-home',name: 'FMS', route:'/hola21'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Mis Test',subTitulo :[
+                      {icon: 'mdi-home',name: 'Ruffier', route:'/hola22'},
+                     {icon: 'mdi-home',name: 'Ananmesis', route:'/hola23'},
+                     {icon: 'mdi-home',name: 'Antropometria', route:'/hola24'},
+                     {icon: 'mdi-home',name: 'FMS', route:'/hola25'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Mi Menu',subTitulo :[
+                     {icon: 'mdi-home',name: 'Mi Rutina', route:'/hola26'},
+                     {icon: 'mdi-home',name: 'Inscribirse en Clases', route:'/hola27'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Kinesiologia',subTitulo :[
+                     {icon: 'mdi-home',name: 'Pacientes', route:'/hola128'},
+                 ]},
+                     {icon: 'mdi-folder', nombre:'Consulta Compras',subTitulo :[
+                     {icon: 'mdi-home',name: 'Consulta Compras', route:'/hola29'},
+                 ]},                
                  
+             ],
+
+             tituloSecun:[
+                 {icon: 'mdi-folder', nombre:'Ayuda', route:'/hola50'},
+                 {icon: 'mdi-folder', nombre:'Acerca De', route:'/hola51'},
+
              ],
         
              condTitulo : true,
-             
-             
-             
+           
            
         }
     },
@@ -212,13 +228,7 @@ export default {
             }
         },
     
-        condition(){
-            if(this.miniVariant){
-               return this.condition2 = true
-            }else{
-               return this.condition2 = false
-            }        
-        },
+       
         margin2(){
             if(this.miniVariant){
                return this.margin = 'ml-5'
@@ -232,6 +242,13 @@ export default {
 
             }else{
               return  this.condTitulo = true
+            }
+        },
+        expandir(){
+            if(this.miniVariant){
+            return   this.expandOnHover = true
+            }else{
+                return this.expandOnHover = false
             }
         }
     }

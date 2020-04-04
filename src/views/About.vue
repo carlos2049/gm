@@ -59,7 +59,7 @@
             ],
           },
           {
-            action: 'restaurant',
+            action: 'wb_sunny',
             title: 'Dining',
             active: true,
             items: [
