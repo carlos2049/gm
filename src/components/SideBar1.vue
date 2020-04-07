@@ -1,10 +1,27 @@
 <template>
 <v-container>
-    <nav close-delay="500">
-        <v-app-bar app   color="grey lighten-5">
-     
-            <v-app-bar-nav-icon  @click="minivarianCambio"></v-app-bar-nav-icon>
-        </v-app-bar>       
+    <nav >
+        <v-app-bar app class="alineado"  color="grey lighten-5">
+             <v-app-bar-nav-icon  @click="minivarianCambio"></v-app-bar-nav-icon>
+            
+        <v-container color="grey lighten-5" class="cont-menu" >
+          <v-list-item router to="/login">
+                 <v-list  max-height color="grey lighten-2" class="avatar">
+                    <v-list-item>
+                        <v-list-item-avatar>
+                            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+                        </v-list-item-avatar>
+                    <v-list-item-content>
+                        <v-list-item-title class="title">John Leider</v-list-item-title>
+                    
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+             </v-list-item>
+        </v-container>
+                 <!-- <v-system-bar></v-system-bar> -->      
+        </v-app-bar>   
+            
     </nav>  
     <!-- color="blue-grey darken-4" -->
      <v-navigation-drawer app  class="blue-grey darken-3"
@@ -120,12 +137,19 @@
             <!-- <v-divider color="white" class="mx-2 "></v-divider> -->
            
         </v-navigation-drawer>
+        <datos></datos>
+
     </v-container>
 </template>
 
 <script>
+
+import datos from '@/components/Datos.vue'
 export default {
     name: 'SideBar',
+    components:{
+        datos
+    },
     data(){
         return{
             drawer:true,
@@ -139,7 +163,7 @@ export default {
              margin : '',
              titulos2:[
                  {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
-                     {icon: 'radio_button_unchecked',name: ' Planes', route:'/home'},
+                     {icon: 'radio_button_unchecked',name: ' Planes', route:'/Prueba'},
                      {icon: 'radio_button_unchecked',name: ' Sub Planes', route:'/hola2'},
                  ]},
                  {icon: 'mdi-widgets', nombre:'Ejercicios',subTitulo :[
@@ -260,6 +284,19 @@ export default {
 
 .v-application--is-ltr .v-list-item__action:first-child, .v-application--is-ltr .v-list-item__icon:first-child {
     margin-right: 15px;
+}
+.alineado{
+   align-items: space-around;
+}
+.avatar{
+    
+    margin-right: 0%;
+    height: 63px;
+    border-style: solid black 2px;
+}
+.cont-menu{
+    padding: 0px;
+    margin-left: 85%;
 }
 
 </style>

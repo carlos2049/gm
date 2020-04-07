@@ -2,17 +2,17 @@
 <div class="prueba">
    
     
-
+<datos></datos>
 </div>
   
 </template>
 
 <script>
-import SideBar from '@/components/SideBar1.vue'
+import datos from '@/components/Datos.vue'
 export default {
     name: 'Prueba',
     components: {
-        SideBar
+        datos
     }
 
 }
