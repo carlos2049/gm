@@ -74,6 +74,7 @@
                         :key="subtitulo.name"
                         router :to="subtitulo.route"
                          class="pl-4"
+                         @click="click1(subtitulo.values)"
                         >
                             <v-list-item-action>
                                 <v-icon :color="colorIcon"> radio_button_unchecked </v-icon>
@@ -163,61 +164,61 @@ export default {
              margin : '',
              titulos2:[
                  {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
-                     {icon: 'radio_button_unchecked',name: ' Planes', route:'/Prueba'},
-                     {icon: 'radio_button_unchecked',name: ' Sub Planes', route:'/hola2'},
+                     {icon: 'radio_button_unchecked',name: ' Planes', values : 1, route:'/Prueba'},
+                     {icon: 'radio_button_unchecked',name: ' Sub Planes',values : 2, route:'/hola2'},
                  ]},
                  {icon: 'mdi-widgets', nombre:'Ejercicios',subTitulo :[
-                     {icon: 'radio_button_unchecked',name: 'Ejercicios', route:'/hola3'},
-                     {icon: 'radio_button_unchecked',name: 'Biblioteca de Ejercicios', route:'/hola4'}
+                     {icon: 'radio_button_unchecked',name: 'Ejercicios',values : 3, route:'/hola3'},
+                     {icon: 'radio_button_unchecked',name: 'Biblioteca de Ejercicios',values : 4, route:'/hola4'}
                 
                  ]},
                  {icon: 'mdi-folder', nombre:'Maestro de Clases',subTitulo :[
-                     {icon: 'mdi-home',name: 'Creacion de clases', route:'/hola5'},
-                     {icon: 'mdi-home',name: 'Crear Rutinas Clientes', route:'/hola6'}
+                     {icon: 'mdi-home',name: 'Creacion de clases',values : 5, route:'/hola5'},
+                     {icon: 'mdi-home',name: 'Crear Rutinas Clientes',values : 6, route:'/hola6'}
                  ]},
                  {icon: 'mdi-folder', nombre:'Maestro de Gastos',subTitulo :[
-                     {icon: 'mdi-home',name: 'Periodos', route:'/hola56'},
-                     {icon: 'mdi-home',name: 'Tipos de Gastos', route:'/hola7'},
-                     {icon: 'mdi-home',name: 'Maestro de gastos', route:'/hola8'},
+                     {icon: 'mdi-home',name: 'Periodos',values : 7, route:'/hola56'},
+                     {icon: 'mdi-home',name: 'Tipos de Gastos',values : 8, route:'/hola7'},
+                     {icon: 'mdi-home',name: 'Maestro de gastos',values : 9, route:'/hola8'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Almacen',subTitulo :[
-                     {icon: 'mdi-home',name: 'Articulos', route:'/hola9'},
-                     {icon: 'mdi-home',name: 'Categorias', route:'/hola10'},
+                     {icon: 'mdi-home',name: 'Articulos' ,values : 10, route:'/hola9'},
+                     {icon: 'mdi-home',name: 'Categorias',values : 11, route:'/hola10'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Compras',subTitulo :[
-                     {icon: 'mdi-home',name: 'Ingresos', route:'/hola11'},
-                     {icon: 'mdi-home',name: 'Proveedores', route:'/hola12'},
+                     {icon: 'mdi-home',name: 'Ingresos',values : 12, route:'/hola11'},
+                     {icon: 'mdi-home',name: 'Proveedores',values : 13, route:'/hola12'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Ventas',subTitulo :[
-                     {icon: 'mdi-home',name: 'Ventas', route:'/hola13'},
-                     {icon: 'mdi-home',name: 'Clientes', route:'/hola13'},
+                     {icon: 'mdi-home',name: 'Ventas',values : 14, route:'/hola13'},
+                     {icon: 'mdi-home',name: 'Clientes',values : 15, route:'/hola13'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Acesso',subTitulo :[
-                     {icon: 'mdi-home',name: 'Usuarios', route:'/hola15'},
-                     {icon: 'mdi-home',name: 'Permisos', route:'/hola16'},
-                     {icon: 'mdi-home',name: 'Perfiles', route:'/hola17'},
+                     {icon: 'mdi-home',name: 'Usuarios',values : 16, route:'/hola15'},
+                     {icon: 'mdi-home',name: 'Permisos',values : 17, route:'/hola16'},
+                     {icon: 'mdi-home',name: 'Perfiles',values : 18, route:'/hola17'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Crear Test',subTitulo :[
-                     {icon: 'mdi-home',name: 'Ruffier', route:'/hola18'},
-                     {icon: 'mdi-home',name: 'Ananmesis', route:'/hola19'},
-                     {icon: 'mdi-home',name: 'Antropometria', route:'/hola20'},
-                     {icon: 'mdi-home',name: 'FMS', route:'/hola21'},
+                     {icon: 'mdi-home',name: 'Ruffier',values : 19, route:'/hola18'},
+                     {icon: 'mdi-home',name: 'Ananmesis',values : 20, route:'/hola19'},
+                     {icon: 'mdi-home',name: 'Antropometria',values : 21, route:'/hola20'},
+                     {icon: 'mdi-home',name: 'FMS',values : 22, route:'/hola21'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Mis Test',subTitulo :[
-                      {icon: 'mdi-home',name: 'Ruffier', route:'/hola22'},
-                     {icon: 'mdi-home',name: 'Ananmesis', route:'/hola23'},
-                     {icon: 'mdi-home',name: 'Antropometria', route:'/hola24'},
-                     {icon: 'mdi-home',name: 'FMS', route:'/hola25'},
+                      {icon: 'mdi-home',name: 'Ruffier',values : 23, route:'/hola22'},
+                     {icon: 'mdi-home',name: 'Ananmesis',values : 24, route:'/hola23'},
+                     {icon: 'mdi-home',name: 'Antropometria',values : 25, route:'/hola24'},
+                     {icon: 'mdi-home',name: 'FMS',values : 26, route:'/hola25'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Mi Menu',subTitulo :[
-                     {icon: 'mdi-home',name: 'Mi Rutina', route:'/hola26'},
-                     {icon: 'mdi-home',name: 'Inscribirse en Clases', route:'/hola27'},
+                     {icon: 'mdi-home',name: 'Mi Rutina',values : 27, route:'/hola26'},
+                     {icon: 'mdi-home',name: 'Inscribirse en Clases',values : 28, route:'/hola27'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Kinesiologia',subTitulo :[
-                     {icon: 'mdi-home',name: 'Pacientes', route:'/hola128'},
+                     {icon: 'mdi-home',name: 'Pacientes',values : 29, route:'/hola128'},
                  ]},
                      {icon: 'mdi-folder', nombre:'Consulta Compras',subTitulo :[
-                     {icon: 'mdi-home',name: 'Consulta Compras', route:'/hola29'},
+                     {icon: 'mdi-home',name: 'Consulta Compras',values : 30, route:'/hola29'},
                  ]},                
                  
              ],
@@ -241,6 +242,23 @@ export default {
                 
             }else
             this.miniVariant = true
+        },
+        click1(values){  
+     
+                for (let index = 0; index < this.titulos2.length; index++) {
+                    const element = this.titulos2[index].subTitulo
+                   for (let index = 0; index < element.length; index++) {
+                       const eleme = element[index].values;
+                       if(values === eleme){
+                           console.log("el elemento es " + store.state.numero )
+                           
+                       }
+                       
+                   }
+                    
+                }
+                
+            
         }
     },
     computed:{
@@ -274,6 +292,9 @@ export default {
             }else{
                 return this.expandOnHover = false
             }
+        },
+        llamada(){
+
         }
     }
     

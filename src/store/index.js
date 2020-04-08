@@ -5,8 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    numero: 50
   },
   mutations: {
+    hola(){
+      
+    }
   },
   actions: {
   },
