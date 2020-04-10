@@ -2,7 +2,7 @@
   
   <v-container>
     <div>
-      <h1>contenedor</h1>
+      <h1 >contenedor</h1>
     </div>
 
   
@@ -37,16 +37,16 @@
                         <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                        <v-text-field v-model="editedItem.tipo" label="Calories"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                        <v-text-field v-model="editedItem.imagen" label="Fat (g)"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                        <v-text-field v-model="editedItem.url" label="Carbs (g)"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                        <v-text-field v-model="editedItem.observacion" label="Protein (g)"></v-text-field>
                       </v-col>
                     </v-row>
                   
@@ -89,37 +89,15 @@
 
 
 <script>
+
+import {mapState} from 'vuex'
   export default {
       name: 'datos',
     data: () => ({
       dialog: false,
-      tablaDatos:[
-        {
-          text: 'Nombre Ejercicio', value: 'nombre' ,
-          align: 'start',
-          sortable: false,
-          value: 'name',
-        },
-          { text: 'Tipo Ejercicio (g)', value: 'tipo' },
-          { text: 'Imagen', value: 'imagen' },
-          { text: 'URL', value: 'url' },
-          { text: 'Observacion', value: 'observacion'},
-          { text: 'Actions', value: 'actions', sortable: false },
-      ]
-      
-      ,
+     contenedor: 0,
       headers: [
-        {
-          text: 'Dessert (100g serving)',
-          align: 'start',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Calories', value: 'calories' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
-        { text: 'Actions', value: 'actions', sortable: false },
+       
       ],
       desserts: [],
       editedIndex: -1,
@@ -140,9 +118,11 @@
     }),
 
     computed: {
+      ...mapState(['tablaDatos', 'cond']),
       formTitle () {
         return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
       },
+ 
     },
 
     watch: {
@@ -152,11 +132,18 @@
     },
 
     created () {
+      this.$store.dispatch('titulo')
       this.initialize()
+      
     },
 
     methods: {
+    
+    
+     
+      
       initialize () {
+        console.log('holaaa' + this.cond)
         this.desserts = [
           {
             name: 'Frozen Yogurt',
