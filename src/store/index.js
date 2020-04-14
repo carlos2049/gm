@@ -7,10 +7,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     numero: 50,
+    tituloTolbar: '',
     titulos2:[
       {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
-          {icon: 'radio_button_unchecked',name: ' Planes', values : 1, route:'/Planes'},
-          {icon: 'radio_button_unchecked',name: ' Sub Planes',values : 2, route:'/SubPlanes'},
+          {icon: 'radio_button_unchecked',name: 'Planes', values : 1, route:'/Planes'},
+          {icon: 'radio_button_unchecked',name: 'Sub Planes',values : 2, route:'/SubPlanes'},
       ]},
       {icon: 'mdi-widgets', nombre:'Ejercicios',subTitulo :[
           {icon: 'radio_button_unchecked',name: 'Ejercicios',values : 3, route:'/Ejercicios'},
@@ -19,51 +20,51 @@ export default new Vuex.Store({
      
       ]},
       {icon: 'mdi-folder', nombre:'Maestro de Clases',subTitulo :[
-          {icon: 'mdi-home',name: 'Creacion de clases',values : 6, route:'/hola5'},
+          {icon: 'mdi-home',name: 'Creacion de clases',values : 6, route:'/Clases'},
       ]},
       {icon: 'mdi-folder', nombre:'Maestro de Gastos',subTitulo :[
-          {icon: 'mdi-home',name: 'Periodos',values : 7, route:'/hola56'},
-          {icon: 'mdi-home',name: 'Tipos de Gastos',values : 8, route:'/hola7'},
+          {icon: 'mdi-home',name: 'Periodos',values : 7, route:'/Periodo'},
+          {icon: 'mdi-home',name: 'Tipos de Gastos',values : 8, route:'/Gastos'},
          
       ]},
           {icon: 'mdi-folder', nombre:'Almacen',subTitulo :[
-          {icon: 'mdi-home',name: 'Articulos' ,values : 9, route:'/hola9'},
-          {icon: 'mdi-home',name: 'Categorias',values : 10, route:'/hola10'},
+          {icon: 'mdi-home',name: 'Articulos' ,values : 9, route:'/Articulo'},
+          {icon: 'mdi-home',name: 'Categorias',values : 10, route:'/Categoria'},
       ]},
           {icon: 'mdi-folder', nombre:'Compras',subTitulo :[
-          {icon: 'mdi-home',name: 'Ingresos',values : 11, route:'/hola11'},
-          {icon: 'mdi-home',name: 'Proveedores',values : 12, route:'/hola12'},
+          {icon: 'mdi-home',name: 'Ingresos',values : 11, route:'/Ingreso'},
+          {icon: 'mdi-home',name: 'Proveedores',values : 12, route:'/Proveedor'},
       ]},
           {icon: 'mdi-folder', nombre:'Ventas',subTitulo :[
-          {icon: 'mdi-home',name: 'Ventas',values : 13, route:'/hola13'},
-          {icon: 'mdi-home',name: 'Clientes',values : 14, route:'/hola13'},
+          {icon: 'mdi-home',name: 'Ventas',values : 13, route:'/Venta'},
+          {icon: 'mdi-home',name: 'Clientes',values : 14, route:'/Cliente'},
       ]},
           {icon: 'mdi-folder', nombre:'Acesso',subTitulo :[
-          {icon: 'mdi-home',name: 'Usuarios',values : 15, route:'/hola15'},
-          {icon: 'mdi-home',name: 'Permisos',values : 16, route:'/hola16'},
-          {icon: 'mdi-home',name: 'Perfiles',values : 17, route:'/hola17'},
+          {icon: 'mdi-home',name: 'Usuarios',values : 15, route:'/Usuario'},
+          {icon: 'mdi-home',name: 'Permisos',values : 16, route:'/Permiso'},
+          {icon: 'mdi-home',name: 'Perfiles',values : 17, route:'/Perfil'},
       ]},
           {icon: 'mdi-folder', nombre:'Crear Test',subTitulo :[
-          {icon: 'mdi-home',name: 'Ruffier',values : 18, route:'/hola18'},
-          {icon: 'mdi-home',name: 'Ananmesis',values : 19, route:'/hola19'},
-          {icon: 'mdi-home',name: 'Antropometria',values : 20, route:'/hola20'},
-          {icon: 'mdi-home',name: 'FMS',values : 21, route:'/hola21'},
+          {icon: 'mdi-home',name: 'Ruffier',values : 18, route:'/Ruffier'},
+          {icon: 'mdi-home',name: 'Ananmesis',values : 19, route:'/Anamnesis'},
+          {icon: 'mdi-home',name: 'Antropometria',values : 20, route:'/Antropometria'},
+          {icon: 'mdi-home',name: 'FMS',values : 21, route:'/FMS'},
       ]},
           {icon: 'mdi-folder', nombre:'Mis Test',subTitulo :[
-           {icon: 'mdi-home',name: 'Ruffier',values : 22, route:'/hola22'},
-          {icon: 'mdi-home',name: 'Ananmesis',values : 23, route:'/hola23'},
-          {icon: 'mdi-home',name: 'Antropometria',values : 24, route:'/hola24'},
-          {icon: 'mdi-home',name: 'FMS',values : 25, route:'/hola25'},
+           {icon: 'mdi-home',name: 'Ruffier',values : 22, route:'/TestRufier'},
+          {icon: 'mdi-home',name: 'Ananmesis',values : 23, route:'/TestAnamnesis'},
+          {icon: 'mdi-home',name: 'Antropometria',values : 24, route:'/TestAntropometria'},
+          {icon: 'mdi-home',name: 'FMS',values : 25, route:'/TestFMS'},
       ]},
           {icon: 'mdi-folder', nombre:'Mi Menu',subTitulo :[
-          {icon: 'mdi-home',name: 'Mi Rutina',values : 26, route:'/hola26'},
-          {icon: 'mdi-home',name: 'Inscribirse en Clases',values : 27, route:'/hola27'},
+          {icon: 'mdi-home',name: 'Mi Rutina',values : 26, route:'/Rutina'},
+          {icon: 'mdi-home',name: 'Inscribirse en Clases',values : 27, route:'/TomarClase'},
       ]},
           {icon: 'mdi-folder', nombre:'Kinesiologia',subTitulo :[
-          {icon: 'mdi-home',name: 'Pacientes',values : 28, route:'/hola128'},
+          {icon: 'mdi-home',name: 'Pacientes',values : 28, route:'/Pacientes'},
       ]},
           {icon: 'mdi-folder', nombre:'Consulta Compras',subTitulo :[
-          {icon: 'mdi-home',name: 'Consulta Compras',values : 29, route:'/hola29'},
+          {icon: 'mdi-home',name: 'Consulta Compras',values : 29, route:'/ComprasFecha'},
       ]},                
       
     ],
@@ -579,13 +580,117 @@ export default new Vuex.Store({
 
       ]
     },
+    envio(state, sss){
+      state.tituloTolbar = sss
+    }
    
 
 
   },
   actions: {
-    titulo(titulo){
+    iniciar(context, val){
         // aqui llegaba el create
+        const ele = val.valor
+      
+
+      console.log(ele)
+      switch (ele) {
+        case 1:
+          context.commit('planes')
+        break;
+        case 2:
+          context.commit('subPlanes')
+          
+        break;
+        case 3:
+          context.commit('ejercicios')
+        break;
+        case 4:
+          context.commit('nivel')
+        break;
+        case 5:
+          context.commit('bibliotecaRutinas')
+        break;
+        case 6:
+          context.commit('clases')
+        break;
+        case 7:
+          context.commit('periodo')
+        break;
+        case 8:
+          context.commit('gastos')
+        break;
+        case 9:
+          context.commit('articulo')
+        break;
+        case 10:
+          context.commit('categoria')
+        break;
+        case 11:
+          context.commit('ingreso')
+        break;
+        case 12:
+          context.commit('proveedor')
+        break;
+        case 13:
+          context.commit('venta')
+        break;
+        case 14:
+          context.commit('cliente')
+        break;
+        case 15:
+          context.commit('usuario')
+        break;
+        case 16:
+          context.commit('permiso')
+        break;
+        case 17:
+          context.commit('perfil')
+        break;
+        case 18:
+          context.commit('anamnesis')
+        break;
+        case 19:
+          context.commit('antropometria')
+        break;
+        case 20:
+          context.commit('fms')
+        break;
+        case 21:
+          context.commit('testRuffier')
+        break;
+        case 22:
+          context.commit('testAnamnesis')
+        break;
+        case 23:
+          context.commit('testAntropometria')
+        break;
+        case 24:
+          context.commit('testFms')
+        break;
+        case 25:
+          context.commit('rutina')
+        break;
+        case 26:
+          context.commit('tomarClase')
+        break;
+        case 27:
+          context.commit('pacientes')
+        break;
+        case 28:
+          context.commit('comprasFecha')
+        break;
+        case 29:
+          context.commit('ventasFecha')
+        break;
+      }
+
+    },
+    subti(context, sub){
+     
+      var sss = sub.sub
+      context.commit('envio',sss)
+
 
     },
     tit2(context, e){
@@ -597,6 +702,7 @@ export default new Vuex.Store({
         break;
         case 2:
           context.commit('subPlanes')
+          
         break;
         case 3:
           context.commit('ejercicios')

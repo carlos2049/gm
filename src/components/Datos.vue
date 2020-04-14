@@ -14,7 +14,7 @@
       >
         <template v-slot:top>
           <v-toolbar flat color="white">
-            <v-toolbar-title>My CRUD</v-toolbar-title>
+            <v-toolbar-title  >  {{ tituloData }}</v-toolbar-title>
             <v-divider
               class="mx-4"
               inset
@@ -96,6 +96,7 @@ import {mapState} from 'vuex'
     data: () => ({
       dialog: false,
      contenedor: 0,
+     titu50 : '',
       headers: [
        
       ],
@@ -118,10 +119,36 @@ import {mapState} from 'vuex'
     }),
 
     computed: {
-      ...mapState(['tablaDatos', 'cond']),
+      ...mapState(['tablaDatos', 'cond','titulos2', 'tituloTolbar']),
       formTitle () {
         return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
       },
+     tituloData()  {
+        //al final no se ocupo esta funcion, los subtitulo los trae el vuex con tituloTolbar
+        const ruta = this.$route
+        const ruta2 = ruta.path
+       if(this.tituloTolbar === ''){
+          for (let index = 0; index < this.titulos2.length; index++) {
+            const element = this.titulos2[index].subTitulo;
+            for (let index = 0; index < element.length; index++) {
+              const element2 = element[index].route;
+              const nombre = element[index].name
+                if(element2 === ruta2){
+                  return nombre
+                }
+              
+            }
+          }
+       }else{
+         return this.tituloTolbar
+       }
+        
+       
+       
+
+      },
+
+      
  
     },
 
@@ -132,12 +159,41 @@ import {mapState} from 'vuex'
     },
 
     created () {
-      this.$store.dispatch('titulo')
+      
+      this.url()
+      
+      
+      
+     // this.$store.dispatch('iniciar')
       this.initialize()
       
     },
 
     methods: {
+      
+
+      url(){
+          const route2 = this.$route 
+          const ruta = route2.path
+          console.log(ruta)
+
+         
+        
+        for (let index = 0; index < this.titulos2.length; index++) {
+          const element = this.titulos2[index].subTitulo;
+          for (let index = 0; index < element.length; index++) {
+            const element2 = element[index].route;
+            const valor = element[index].values
+            if(ruta === element[index].route){
+                console.log( 'este es' + element2)
+                this.$store.dispatch('iniciar', {valor})
+                
+            }
+          }
+          
+          
+        }
+      },
     
     
      

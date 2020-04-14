@@ -74,7 +74,7 @@
                         :key="subtitulo.name"
                         router :to="subtitulo.route"
                          class="pl-4"
-                         @click="click1(subtitulo.values)"
+                         @click="click1(subtitulo.values),click10(subtitulo.name)"
                         >
                             <v-list-item-action>
                                 <v-icon :color="colorIcon"> radio_button_unchecked </v-icon>
@@ -207,6 +207,10 @@ export default {
             }else
             this.miniVariant = true
         },
+        click10(sub){
+            this.$store.dispatch('subti', {sub})
+        },
+       
         
        
     },
