@@ -8,6 +8,14 @@ export default new Vuex.Store({
   state: {
     numero: 50,
     tituloTolbar: '',
+    titulosObjeto: {
+      '/ejercicios': {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
+            {icon: 'mdi-home',name: 'Usuarios',values : 15, route:'/Usuario'},
+            {icon: 'mdi-home',name: 'Permisos',values : 16, route:'/Permiso'},
+            {icon: 'mdi-home',name: 'Perfiles',values : 17, route:'/Perfil'},
+          ]   
+        }
+    },
     titulos2:[
       {icon: 'mdi-home', nombre:'Servicios ',subTitulo :[
           {icon: 'radio_button_unchecked',name: 'Planes', values : 1, route:'/Planes'},

@@ -119,7 +119,7 @@ import {mapState} from 'vuex'
     }),
 
     computed: {
-      ...mapState(['tablaDatos', 'cond','titulos2', 'tituloTolbar']),
+      ...mapState(['tablaDatos', 'cond','titulos2', 'tituloTolbar','titulosObjeto']),
       formTitle () {
         return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
       },
@@ -127,25 +127,50 @@ import {mapState} from 'vuex'
         //al final no se ocupo esta funcion, los subtitulo los trae el vuex con tituloTolbar
         const ruta = this.$route
         const ruta2 = ruta.path
-       if(this.tituloTolbar === ''){
-          for (let index = 0; index < this.titulos2.length; index++) {
-            const element = this.titulos2[index].subTitulo;
-            for (let index = 0; index < element.length; index++) {
-              const element2 = element[index].route;
-              const nombre = element[index].name
-                if(element2 === ruta2){
-                  return nombre
-                }
-              
-            }
-          }
-       }else{
-         return this.tituloTolbar
-       }
-        
-       
-       
 
+      
+       if(this.tituloTolbar === ''){
+          // for (let index = 0; index < this.titulos2.length; index++) {
+          //   const element = this.titulos2[index].subTitulo;
+          //   for (let index = 0; index < element.length; index++) {
+          //     const element2 = element[index].route;
+          //     const nombre = element[index].name
+          //       if(element2 === ruta2){
+          //         return nombre
+          //       }
+              
+          //   }
+          // }
+        
+            // const result = this.titulosObjeto[ruta2.toLowerCase()]
+            // const encontrado = result.subTitulo.find(item => item.route === '/Usuario')
+
+
+
+          const array = this.titulos2.find(item => item.subTitulo.find(item => item.route === ruta2))
+           const encontrado = array.subTitulo.find(item => item.route === ruta2)
+           return encontrado.name
+
+          // este no me funciono:
+          // const arr = this.titulos2.find(item => item.subTitulo)    
+          // const arr2 = arr.find(item => item.route === ruta2)
+               
+                   //   try{
+          // const array = this.titulos2.find(item => item.subTitulo.filter(item => item.route === ruta2).length > 0)
+          //  const encontrado = array.subTitulo.find(item => item.route === ruta2)
+          //  return encontrado.name
+          // }catch(err){
+          //   return ''
+          // }
+      
+         // console.log(arr2)
+          
+          
+         
+        }else{
+         return this.tituloTolbar
+        }  
+        
       },
 
       
